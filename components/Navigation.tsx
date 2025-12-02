@@ -77,6 +77,22 @@ export const Header: React.FC<HeaderProps> = ({ onStartClick }) => {
   );
 };
 
+export const Footer: React.FC = () => {
+  return (
+    <footer className="bg-dorren-dark text-white py-12 border-t border-white/10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div className="flex items-center gap-2">
+          <div className="w-8 h-8 bg-white text-dorren-dark flex items-center justify-center font-bold text-xl rounded">D</div>
+          <span className="text-2xl font-bold tracking-tight">DORREN</span>
+        </div>
+        <div className="text-dorren-light/60 text-sm text-center md:text-right">
+          <p>© {new Date().getFullYear()} DORREN Academy. Внутренний обучающий портал.</p>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
 interface LessonHeaderProps {
   lessonId: string;
   title: string;
@@ -179,28 +195,17 @@ export const LessonHeader: React.FC<LessonHeaderProps> = ({ lessonId, title, onB
                 2.2. Параметры
                 {lessonId === '2.2' && <div className="w-1.5 h-1.5 rounded-full bg-dorren-light"></div>}
               </button>
+              <button 
+                onClick={() => onNavigate('lesson2.3')} 
+                className={`w-full text-left px-4 py-2 text-sm hover:bg-gray-50 flex justify-between items-center ${lessonId === '2.3' ? 'text-dorren-dark font-bold bg-gray-50' : 'text-gray-600'}`}
+              >
+                2.3. Маппинг
+                {lessonId === '2.3' && <div className="w-1.5 h-1.5 rounded-full bg-dorren-light"></div>}
+              </button>
             </div>
           )}
         </div>
       </div>
     </header>
-  );
-};
-
-export const Footer: React.FC = () => {
-  return (
-    <footer className="bg-dorren-dark text-white py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-white text-dorren-dark flex items-center justify-center font-bold text-xl rounded">D</div>
-            <span className="text-2xl font-bold tracking-tight">DORREN</span>
-          </div>
-          <p className="text-gray-400 text-sm">
-            © {new Date().getFullYear()} DORREN Door Solutions. Внутренний обучающий портал.
-          </p>
-        </div>
-      </div>
-    </footer>
   );
 };

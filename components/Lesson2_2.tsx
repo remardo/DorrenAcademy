@@ -490,12 +490,18 @@ export const Lesson2_2: React.FC<LessonProps> = ({ onBack, onNavigate }) => {
                     ? 'Отлично! Вы говорите на языке инженеров.' 
                     : 'Хорошая попытка, но стоит повторить про EI и открывание.'}
                 </p>
-                <button 
-                  onClick={() => { setShowQuizResult(false); setQuizAnswers({}); }} 
-                  className="text-dorren-dark hover:underline font-medium"
-                >
-                  Пройти заново
-                </button>
+                <div className="flex gap-4 justify-center">
+                   <button onClick={() => { setShowQuizResult(false); setQuizAnswers({}); }} className="text-gray-500 hover:text-dorren-dark px-4 py-2">
+                     Попробовать снова
+                   </button>
+                   <button 
+                     onClick={() => onNavigate('lesson2.3')}
+                     className="bg-dorren-dark text-white px-6 py-2 rounded-lg font-semibold hover:bg-opacity-90 flex items-center gap-2"
+                   >
+                     Следующий урок
+                     <ChevronRight size={16} />
+                   </button>
+                </div>
              </div>
            )}
         </section>

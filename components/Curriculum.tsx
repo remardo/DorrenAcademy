@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Lock, PlayCircle, FileText, ChevronDown, ChevronUp, Map, Briefcase, FileCheck, ArrowRight, LayoutGrid, Sliders } from 'lucide-react';
+import { Lock, PlayCircle, FileText, ChevronDown, ChevronUp, Map, Briefcase, FileCheck, ArrowRight, LayoutGrid, Sliders, Grip } from 'lucide-react';
 import { MODULES } from '../data';
 
 interface CurriculumProps {
@@ -72,6 +72,7 @@ export const Curriculum: React.FC<CurriculumProps> = ({ onLessonStart }) => {
                              lesson.id === '1.3' ? FileCheck : 
                              lesson.id === '2.1' ? LayoutGrid :
                              lesson.id === '2.2' ? Sliders :
+                             lesson.id === '2.3' ? Grip :
                              FileText;
 
                 return (

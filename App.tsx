@@ -10,14 +10,15 @@ import { Lesson1_2 } from './components/Lesson1_2';
 import { Lesson1_3 } from './components/Lesson1_3';
 import { Lesson2_1 } from './components/Lesson2_1';
 import { Lesson2_2 } from './components/Lesson2_2';
+import { Lesson2_3 } from './components/Lesson2_3';
 
 const App: React.FC = () => {
-  const [currentView, setCurrentView] = useState<'landing' | 'lesson1.1' | 'lesson1.2' | 'lesson1.3' | 'lesson2.1' | 'lesson2.2'>('landing');
+  const [currentView, setCurrentView] = useState<'landing' | 'lesson1.1' | 'lesson1.2' | 'lesson1.3' | 'lesson2.1' | 'lesson2.2' | 'lesson2.3'>('landing');
 
   const handleNavigate = (view: string) => {
     window.scrollTo(0, 0);
     // Simple validation for type safety
-    if (view === 'landing' || view === 'lesson1.1' || view === 'lesson1.2' || view === 'lesson1.3' || view === 'lesson2.1' || view === 'lesson2.2') {
+    if (view === 'landing' || view.startsWith('lesson')) {
       setCurrentView(view as any);
     } else {
       setCurrentView('landing');
@@ -44,6 +45,10 @@ const App: React.FC = () => {
 
   if (currentView === 'lesson2.2') {
     return <Lesson2_2 onBack={() => handleNavigate('landing')} onNavigate={handleNavigate} />;
+  }
+
+  if (currentView === 'lesson2.3') {
+    return <Lesson2_3 onBack={() => handleNavigate('landing')} onNavigate={handleNavigate} />;
   }
 
   return (
